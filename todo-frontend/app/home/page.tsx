@@ -4,11 +4,13 @@ import { CheckSquare, Bell, BarChart2, Lock } from 'lucide-react';
 import Shapes from './components/Shapes';
 
 const FeatureCard = ({ icon: Icon, title, description }: { icon: any, title: string, description: string }) => (
-  <div className="flex items-start space-x-3 bg-white p-3 rounded-xl shadow-lg w-full max-w-xs transition duration-300 hover:shadow-2xl">
-    <Icon className="w-5 h-3 text-purple-600 mt-0.5" />
+  <div className="flex items-start space-x-4 bg-white p-6 rounded-2xl shadow-lg w-full transition duration-300 hover:shadow-xl">
+    <div className="flex-shrink-0">
+      <Icon className="w-8 h-8 text-purple-600" />
+    </div>
     <div>
-      <h3 className="text-base font-semibold text-gray-900">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+      <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+      <p className="text-sm text-gray-600 mt-1">{description}</p>
     </div>
   </div>
 );
@@ -27,51 +29,59 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans relative overflow-hidden">
       <Shapes />
-      <header className={`pt-12 pb-24 ${primaryColor} rounded-b-[40px] md:rounded-b-[80px] text-center text-white shadow-xl`}>
-        <div className="flex justify-center items-center space-x-2 mb-4">
-          <CheckSquare className="w-10 h-10 md:w-12 md:h-12 border-2 border-white rounded-md p-1" />
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tighter">ToDo.</h1>
+      
+      {/* Header Section */}
+      <header className={`pt-12 pb-32 md:pt-16 md:pb-40 ${primaryColor} rounded-b-[40px] md:rounded-b-[80px] text-center text-white shadow-xl`}>
+        <div className="flex justify-center items-center space-x-3 mb-6">
+          <div className="border-2 border-white rounded-lg p-2">
+            <CheckSquare className="w-8 h-8 md:w-10 md:h-10" />
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">ToDo.</h1>
         </div>
-        <p className="text-xl md:text-2xl font-light italic mt-2 px-4">
+        <p className="text-lg md:text-xl font-light italic px-4 text-gray-100">
           "Organize Your Day. Simplify Your Life."
         </p>
       </header>
 
-      <main className="container mx-auto px-4 -mt-16 md:-mt-20">
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 md:gap-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-2xl lg:max-w-none">
-            {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} />
-            ))}
-          </div>
-
-          <div className="flex flex-col items-center justify-start mt-8 lg:mt-0">
-            <div className="relative w-full max-w-md h-auto mb-10">
-              <div className="p-4 rounded-lg bg-white shadow-2xl">
-                <div className="flex flex-col items-center">
-                  <div className="relative w-[400px] h-[400px] overflow-hidden">
-                    <Image
-                      src="/women with laptop1.jpg"
-                      alt="Woman working on laptop"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
+      {/* Main Content */}
+      <main className="container mx-auto px-4 -mt-20 md:-mt-28 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Features Grid - Left Side */}
+          <div className="flex flex-col items-center lg:items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+              {features.map((feature, index) => (
+                <FeatureCard key={index} {...feature} />
+              ))}
             </div>
-
             
-            <div className="text-center mt-6">
-              <p className="text-xl md:text-2xl font-semibold text-gray-800 mb-6">
+            {/* CTA Text and Button */}
+            <div className="text-center lg:text-left mt-12 w-full max-w-2xl">
+              <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
                 Ready to take control of your Day?
               </p>
               <button
-                className={`px-10 py-4 text-lg font-medium text-white rounded-xl transition duration-300 ease-in-out shadow-lg hover:shadow-xl ${primaryColor} hover:opacity-90`}
+                className={`px-12 py-4 text-lg font-semibold text-white rounded-2xl transition duration-300 ease-in-out shadow-lg hover:shadow-xl ${primaryColor} hover:opacity-90`}
               >
                 Get Started
               </button>
+            </div>
+          </div>
+
+          {/* Illustration - Right Side */}
+          <div className="flex flex-col items-center justify-start order-first lg:order-last">
+            <div className="relative w-full max-w-md h-auto">
+              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden p-4">
+                <div className="relative w-full aspect-square flex items-center justify-center">
+                  <Image
+                    src="/women with laptop1.jpg"
+                    alt="Woman working on laptop"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
