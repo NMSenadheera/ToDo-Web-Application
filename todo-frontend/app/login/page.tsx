@@ -3,11 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 
-//ICON COMPONENTS (SVGs)
-
+// ---
+// ** 1. ICON COMPONENTS (SVGs) **
+// ---
 const LogoIcon = () => (
   <svg width="80" height="80" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* This is the purple box background */}
     <rect x="1" y="1" width="90" height="90" rx="9" fill="#7C3AED" stroke="none" strokeWidth="2" strokeLinejoin="bevel"/>
+    {/* This is the white checkmark */}
     <g clipPath="url(#clip0_214_39)">
     <path d="M83 40.9V75.6667C83 77.8768 82.122 79.9964 80.5592 81.5592C78.9964 83.122 76.8768 84 74.6667 84H16.3333C14.1232 84 12.0036 83.122 10.4408 81.5592C8.87797 79.9964 8 77.8768 8 75.6667V17.3333C8 15.1232 8.87797 13.0036 10.4408 11.4408C12.0036 9.87797 14.1232 9 16.3333 9H67.7667M33 42.3333L45.5 54.8333L87.1667 13.1667" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
     </g>
@@ -35,6 +38,9 @@ const FacebookIcon = () => (
   </svg>
 );
 
+// ---
+// ** 2. THE MAIN LOGIN PAGE COMPONENT **
+// ---
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,17 +48,20 @@ export default function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Simple validation check
     if (!username || !password) {
       alert("Please enter both username and password.");
       return;
     }
     console.log("Login submitted:", { username, password, remember });
-    };
+    // This is where you would call your backend API
+  };
 
   return (
     <div className="flex h-screen w-full bg-slate-50 font-sans">
       
-      <div className="hidden w-full flex-col items-center justify-center rounded-r-3xl bg-[#7C3AED] p-12 lg:flex lg:w-[35%]">
+      {/* Left Panel (Logo) - Styled just like your register page */}
+      <div className="hidden w-full flex-col items-center justify-center rounded-r-3xl bg-gradient-to-b from-purple-500 to-purple-600 p-12 lg:flex lg:w-[35%]">
         <div className="flex flex-col items-center text-center space-y-6">
           <div className="flex items-center space-x-4">
             <LogoIcon />
@@ -64,12 +73,14 @@ export default function LoginPage() {
         </div>
       </div>
 
+      {/* Right Panel (Form) - Full width on mobile */}
       <div className="flex w-full items-center justify-center p-8 lg:w-[65%]">
         
-        {/* Form  */}
+        {/* Form Container */}
         <div className="w-full max-w-md">
           <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-lg">
             
+            {/* Header */}
             <div className="flex flex-col items-center text-center mb-8">
               <div className="rounded-lg bg-indigo-50 p-3">
                 <svg
@@ -78,7 +89,7 @@ export default function LoginPage() {
                   height="32"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#7C3AED" 
+                  stroke="#a855f7" 
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -95,6 +106,7 @@ export default function LoginPage() {
               </p>
             </div>
 
+            {/* Form */}
             <form className="space-y-6" onSubmit={handleSubmit}>
               
               {/* Username Field */}
@@ -104,7 +116,7 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter username"
-                  className="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
                   required
                 />
               </div>
@@ -116,7 +128,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter password"
-                  className="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
                   required
                 />
               </div>
@@ -143,7 +155,7 @@ export default function LoginPage() {
               {/* Login Button */}
               <button
                 type="submit"
-                className="w-full bg-[#7C3AED] hover:bg-purple-700 text-white font-semibold py-3 rounded-lg text-base transition duration-200"
+                className="w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold py-3 rounded-lg text-base transition duration-200"
               >
                 Login
               </button>

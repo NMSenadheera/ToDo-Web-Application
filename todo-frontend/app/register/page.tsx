@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
 	const [firstName, setFirstName] = useState("");
@@ -11,6 +12,7 @@ export default function RegisterPage() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [confirmVisible, setConfirmVisible] = useState(false);
+	const router = useRouter();
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -19,6 +21,9 @@ export default function RegisterPage() {
 			return;
 		}
 		console.log("Register:", { firstName, lastName, email, password });
+		
+		// Navigate to login page after successful registration
+		router.push('/login');
 	};
 
 	return (

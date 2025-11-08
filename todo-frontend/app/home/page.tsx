@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { CheckSquare, Bell, BarChart2, Lock } from 'lucide-react';
 import Shapes from './components/Shapes';
 
@@ -17,7 +18,7 @@ const FeatureCard = ({ icon: Icon, title, description }: { icon: any, title: str
 
 
 export default function HomePage() {
-  const primaryColor = 'bg-[#6B46C1]'; 
+  const primaryColor = 'bg-gradient-to-r from-purple-500 to-purple-600'; 
 
   const features = [
     { icon: CheckSquare, title: 'Smart Task Lists', description: 'create and manage your daily task easily' },
@@ -60,11 +61,12 @@ export default function HomePage() {
               <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
                 Ready to take control of your Day?
               </p>
-              <button
-                className={`px-12 py-4 text-lg font-semibold text-white rounded-2xl transition duration-300 ease-in-out shadow-lg hover:shadow-xl ${primaryColor} hover:opacity-90`}
+              <Link
+                href="/login"
+                className={`inline-block px-12 py-4 text-lg font-semibold text-white rounded-2xl transition duration-300 ease-in-out shadow-lg hover:shadow-xl bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700`}
               >
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
 
