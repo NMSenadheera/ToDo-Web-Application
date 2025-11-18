@@ -96,23 +96,6 @@ export default function RemindersPage() {
               <span className="text-white font-medium text-lg">{task.title}</span>
               <div className="flex items-center gap-4">
                 <button
-                  onClick={() => toggleVisibility(task.id)}
-                  className="text-white hover:opacity-80 transition p-2"
-                  title={task.isVisible ? 'Turn off' : 'Turn on'}
-                >
-                  {task.isVisible ? (
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="1" y="5" width="22" height="14" rx="7" fill="currentColor" />
-                      <circle cx="17" cy="12" r="5" fill="white" />
-                    </svg>
-                  ) : (
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="1" y="5" width="22" height="14" rx="7" fill="currentColor" opacity="0.5" />
-                      <circle cx="7" cy="12" r="5" fill="white" />
-                    </svg>
-                  )}
-                </button>
-                <button
                   onClick={() => deleteTask(task.id)}
                   className="text-white hover:opacity-80 transition p-2"
                   title="Delete task"

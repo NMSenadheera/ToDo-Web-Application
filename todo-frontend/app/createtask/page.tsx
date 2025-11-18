@@ -66,7 +66,7 @@ export default function CreateTaskPage() {
               onChange={(e) => setTaskTitle(e.target.value)}
               placeholder="Enter task title"
               required
-              className="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              className="w-full border border-gray-200 bg-gray-100 text-black rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-500"
             />
           </div>
 
@@ -79,7 +79,7 @@ export default function CreateTaskPage() {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Add details about your task"
               rows={3}
-              className="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              className="w-full border border-gray-200 bg-gray-100 text-black rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-500"
             />
           </div>
 
@@ -91,7 +91,7 @@ export default function CreateTaskPage() {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+              className="w-full border border-gray-200 bg-gray-100 text-black rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"
             />
           </div>
 
